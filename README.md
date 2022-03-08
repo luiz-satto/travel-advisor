@@ -1,1 +1,3 @@
-# travel-advisor
+# Travel Advisor
+---
+Travel Companion App
