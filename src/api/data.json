@@ -963,50 +963,6 @@
             ]
         },
         {
-            "location_id": "186605",
-            "ad_position": "inline1",
-            "ad_size": "8X8",
-            "doubleclick_zone": "eu.ireland.dublin",
-            "ancestors": [
-                {
-                    "subcategory": [
-                        {
-                            "key": "county",
-                            "name": "County"
-                        }
-                    ],
-                    "name": "County Dublin",
-                    "abbrv": null,
-                    "location_id": "186604"
-                },
-                {
-                    "subcategory": [
-                        {
-                            "key": "province",
-                            "name": "Province"
-                        }
-                    ],
-                    "name": "Province of Leinster",
-                    "abbrv": null,
-                    "location_id": "2231205"
-                },
-                {
-                    "subcategory": [
-                        {
-                            "key": "country",
-                            "name": "Country"
-                        }
-                    ],
-                    "name": "Ireland",
-                    "abbrv": null,
-                    "location_id": "186591"
-                }
-            ],
-            "detail": "0",
-            "page_type": "restaurants",
-            "mob_ptype": "app_restaurants"
-        },
-        {
             "location_id": "10467063",
             "name": "Keegan's Cafe",
             "latitude": "53.37407",
@@ -2011,50 +1967,6 @@
                     "name": "Restaurants"
                 }
             ]
-        },
-        {
-            "location_id": "186605",
-            "ad_position": "inline2",
-            "ad_size": "8X8",
-            "doubleclick_zone": "eu.ireland.dublin",
-            "ancestors": [
-                {
-                    "subcategory": [
-                        {
-                            "key": "county",
-                            "name": "County"
-                        }
-                    ],
-                    "name": "County Dublin",
-                    "abbrv": null,
-                    "location_id": "186604"
-                },
-                {
-                    "subcategory": [
-                        {
-                            "key": "province",
-                            "name": "Province"
-                        }
-                    ],
-                    "name": "Province of Leinster",
-                    "abbrv": null,
-                    "location_id": "2231205"
-                },
-                {
-                    "subcategory": [
-                        {
-                            "key": "country",
-                            "name": "Country"
-                        }
-                    ],
-                    "name": "Ireland",
-                    "abbrv": null,
-                    "location_id": "186591"
-                }
-            ],
-            "detail": "0",
-            "page_type": "restaurants",
-            "mob_ptype": "app_restaurants"
         },
         {
             "location_id": "12087716",

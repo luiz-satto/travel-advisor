@@ -1,21 +1,25 @@
 import React from 'react';
 import { Box, Typography, Button, Card, CardMedia, CardContent, CardActions } from '@material-ui/core';
+import { Rating } from '@material-ui/lab';
 
 import Awards from './Awards';
 import Cuisine from './Cuisine';
 import Address from './Address';
-
-import useStyles from './styles';
 import Phone from './Phone';
 
+import consts from '../../consts.json'
+
 interface IProps {
-    place: any
+    place: any,
+    refProp: any,
+    selected: boolean
 }
 
 const PlaceDetails: React.FC<IProps> = props => {
 
-    const classes = useStyles();
-    const PLACE_PHOTO_IMAGE_URL = 'https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg';
+    if (props.selected) {
+        props.refProp?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 
     return (
         <Card elevation={6}>
@@ -23,12 +27,16 @@ const PlaceDetails: React.FC<IProps> = props => {
                 style={{ height: 350 }}
                 image={props.place.photo
                     ? props.place.photo.images.large.url
-                    : PLACE_PHOTO_IMAGE_URL
+                    : consts.phoro_image_url
                 }
                 title={props.place.name}
             />
             <CardContent>
                 <Typography gutterBottom variant='h5'>{props.place.name}</Typography>
+                <Box display='flex' justifyContent='space-between'>
+                    <Rating value={Number(props.place.rating)} readOnly />
+                    <Typography gutterBottom variant='subtitle1'>out of {props.place.num_reviews} reviews</Typography>
+                </Box>
                 <Box display='flex' justifyContent='space-between'>
                     <Typography variant='subtitle1'>Price</Typography>
                     <Typography gutterBottom variant='subtitle1'>{props.place.price_level}</Typography>
