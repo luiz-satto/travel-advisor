@@ -1,24 +1,17 @@
-import React, { useState } from 'react'
-import { CircularProgress, Grid, Typography, InputLabel, MenuItem, Select, FormControl } from '@material-ui/core'
-import PlaceDetails from '../PlaceDetails'
+import React, { useState } from 'react';
+import { CircularProgress, Grid, Typography, InputLabel, MenuItem, Select, FormControl } from '@material-ui/core';
+import PlaceDetails from '../PlaceDetails';
 
-import useStyles from './styles'
+import useStyles from './styles';
 
-const List: React.FC = () => {
+interface IProps {
+    places: any[]
+}
+
+const List: React.FC<IProps> = props => {
     const classes = useStyles()
     const [type, setType] = useState('restaurants')
     const [rating, setRating] = useState('')
-    const places = [
-        { name: 'Cool Place' },
-        { name: 'Best Beer' },
-        { name: 'Best Steak' },
-        { name: 'Any Place' },
-        { name: 'Any Beer' },
-        { name: 'Any Steak' },
-        { name: 'Worst Place' },
-        { name: 'Worst Beer' },
-        { name: 'Worst Steak' },
-    ]
 
     return (
         <div className={classes.container}>
@@ -41,9 +34,9 @@ const List: React.FC = () => {
                 </Select>
             </FormControl>
             <Grid container spacing={3} className={classes.list}>
-                {places?.map((place, i) => (
+                {props.places?.map((place, i) => (
                     <Grid item key={i} xs={12}>
-                        <PlaceDetails name={place.name} />
+                        <PlaceDetails place={place} />
                     </Grid>
                 ))}
             </Grid>
@@ -51,4 +44,4 @@ const List: React.FC = () => {
     )
 }
 
-export default List
+export default List;
