@@ -1,9 +1,13 @@
 import React from 'react'
 
-const PlaceDetails = () => {
+interface IPlace {
+    name: string
+}
+
+const PlaceDetails: React.FC<IPlace> = place => {
     return (
         <div>
-            Place Details
+            <h1>{place.name}</h1>
         </div>
     )
 }
