@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import { CircularProgress, Grid, Typography, InputLabel, MenuItem, Select, FormControl } from '@material-ui/core';
 import PlaceDetails from '../PlaceDetails';
 
@@ -7,20 +7,15 @@ import useStyles from './styles';
 interface IProps {
     places: any[],
     isLoading: any,
-    childClicked: any
+    elRefs: any,
+    childClicked: any,
 }
 
 const List: React.FC<IProps> = props => {
     const classes = useStyles()
+
     const [type, setType] = useState('restaurants')
     const [rating, setRating] = useState('')
-
-    const [elRefs, setElRefs] = useState([]);
-
-    useEffect(() => {
-        const refs = Array(props.places?.length).map((_, i) => elRefs[i] || createRef());
-        setElRefs(refs);
-    }, [props.places, elRefs]);
 
     return (
         <div className={classes.container}>
@@ -53,7 +48,7 @@ const List: React.FC<IProps> = props => {
                             <Grid item key={i} xs={12}>
                                 <PlaceDetails
                                     place={place}
-                                    refProp={elRefs[i]}
+                                    refProp={props.elRefs[i]}
                                     selected={Number(props.childClicked) === i}
                                 />
                             </Grid>

@@ -7,8 +7,6 @@ import Cuisine from './Cuisine';
 import Address from './Address';
 import Phone from './Phone';
 
-import consts from '../../consts.json'
-
 interface IProps {
     place: any,
     refProp: any,
@@ -16,6 +14,8 @@ interface IProps {
 }
 
 const PlaceDetails: React.FC<IProps> = props => {
+
+    const REACT_APP_PHOTO_IMAGE_URL='https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg';
 
     if (props.selected) {
         props.refProp?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -27,7 +27,7 @@ const PlaceDetails: React.FC<IProps> = props => {
                 style={{ height: 350 }}
                 image={props.place.photo
                     ? props.place.photo.images.large.url
-                    : consts.phoro_image_url
+                    : REACT_APP_PHOTO_IMAGE_URL
                 }
                 title={props.place.name}
             />

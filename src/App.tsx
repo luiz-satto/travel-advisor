@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect, createRef, Fragment } from 'react';
 import { CssBaseline, Grid } from '@material-ui/core';
 
 // import { getPlacesData } from './api';
@@ -14,16 +14,13 @@ import { IBounds } from './interfaces/IBounds';
 const App: React.FC = () => {
 
   // const [places, setPlaces] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
   const [childClicked, setChildClicked] = useState(null);
+
   const [coordinates, setCoordinates] = useState<ICoordinates>({ lat: 0, lng: 0 });
   const [bounds, setBounds] = useState<IBounds>({ sw: { lat: 0, lng: 0 }, ne: { lat: 0, lng: 0 } });
-  // const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
-      setCoordinates({ lat: latitude, lng: longitude });
-    });
-  }, []);
+  const [elRefs, setElRefs] = useState<any[]>([]);
 
   // useEffect(() => {
   // setIsLoading(true);
@@ -31,9 +28,27 @@ const App: React.FC = () => {
   //   setPlaces(response.data);
   // });
   // setIsLoading(false);    
-  // }, [coordinates, bounds, places]);  
+  // }, [coordinates, bounds, places]);
 
   const places = jsonData.data;
+
+  // useEffect(() => {
+  //   if (places) {
+  //     const refs = Array(places.length);
+  //     places.map((_, i) => refs.fill(elRefs[i] || createRef()));
+  //     setElRefs(refs);
+  //   }
+  // }, [places, elRefs]);
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
+      setCoordinates({ lat: latitude, lng: longitude });
+    });
+  }, []);
+
+  console.log('-> TEST1: ' + process.env.REACT_APP_MY_ENVIRONMENT_VARIABLE!)
+  console.log('-> TEST2: ' + process.env.REACT_APP_MY_ENVIRONMENT_VARIABLE as string)
+
   return (
     <Fragment>
       <CssBaseline />
@@ -43,6 +58,7 @@ const App: React.FC = () => {
           <List
             places={places}
             isLoading={false}
+            elRefs={elRefs}
             childClicked={childClicked}
           />
         </Grid>

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { ICoordinates } from '../interfaces/ICoordinates';
 
+const REACT_APP_RAPID_API_KEY = 'b541b11a1emsha613715af60ed01p11cbd4jsn3c18bf953b79';
 const URL = 'https://travel-advisor.p.rapidapi.com/restaurants/list-in-boundary';
 
 export const getPlacesData = async (sw: ICoordinates, ne: ICoordinates) => {
@@ -14,7 +15,7 @@ export const getPlacesData = async (sw: ICoordinates, ne: ICoordinates) => {
             },
             headers: {
                 'x-rapidapi-host': 'travel-advisor.p.rapidapi.com',
-                'x-rapidapi-key': 'b541b11a1emsha613715af60ed01p11cbd4jsn3c18bf953b79'
+                'x-rapidapi-key': REACT_APP_RAPID_API_KEY!
             }
         });
 
